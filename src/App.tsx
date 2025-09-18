@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { AuthState } from "@/shared/services/authService"
 import { useEffect } from 'react'
 import { LoginPage } from "./components/LoginPage"
+import { SecurePage } from "./components/SecurePage"
 
 import { Toaster } from "sonner"
 
@@ -19,7 +20,7 @@ function App() {
     }, [])
 
     useEffect(() => {
-        document.title = "Ace book"
+        document.title = "Simple Template"
     }, [])      
 
     return (
@@ -27,7 +28,7 @@ function App() {
         {!authState.isInitialized || !authState.isLoggedIn ? (
             <LoginPage onAuthStateChange={handleAuthStateChange} />
         ) : (
-            <LoginPage onAuthStateChange={handleAuthStateChange} />
+            <SecurePage onAuthStateChange={handleAuthStateChange} />
         )}
         <Toaster 
             position="top-right"
